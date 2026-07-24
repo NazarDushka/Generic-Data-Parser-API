@@ -8,7 +8,7 @@ using Xunit;
 
 namespace ParserTests
 {
-    public class UnitTest1
+    public class JsonParserUnitTests
     {
         [Fact]
         public void InternalJsonDataTypeShouldReturnCorrectlyParsedData()
