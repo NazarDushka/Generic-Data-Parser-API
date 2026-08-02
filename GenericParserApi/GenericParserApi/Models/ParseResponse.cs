@@ -1,6 +1,6 @@
 ﻿namespace GenericParserApi.Models
 {
-    public record ParseRespone (
+    public record ParseResponse (
     string Status,
     int TotalRecords,
     IEnumerable<object> Records

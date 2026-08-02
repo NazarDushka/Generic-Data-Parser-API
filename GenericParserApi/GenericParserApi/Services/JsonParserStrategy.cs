@@ -9,13 +9,20 @@ namespace GenericParserApi.Services
         public SupportedDataTypes SupportedDataType => SupportedDataTypes.INTERNAL_JSON;
         public IEnumerable<object> Parse(string rawData)
         {
-            var records = System.Text.Json.JsonSerializer.Deserialize<JsonElement>(rawData);
-            if (records.ValueKind == JsonValueKind.Array)
+            try
             {
-                return records.EnumerateArray().Cast<object>().ToList();
-            }
+                var records = System.Text.Json.JsonSerializer.Deserialize<JsonElement>(rawData);
+                if (records.ValueKind == JsonValueKind.Array)
+                {
+                    return records.EnumerateArray().Cast<object>().ToList();
+                }
 
-            return new List<object>() { records };
+                return new List<object>() { records };
+            }
+            catch (JsonException ex)
+            {
+                throw new ArgumentException("Invalid JSON data.");
+            }
         }
     }
     
