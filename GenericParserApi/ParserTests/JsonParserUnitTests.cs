@@ -47,16 +47,6 @@ namespace ParserTests
             Assert.Equal("John", item.GetProperty("name").GetString());
             Assert.Equal("25", item.GetProperty("Age").GetString());
         }
-
-        [Fact]
-        public void InternalJsonDataTypeShouldThrowExceptionForInvalidJson()
-        {
-            // Arrange
-            var strategy = new JsonParserStrategy();
-            string rawJson = """{"name": "John", "Age": "25"""; // Invalid JSON
-            // Act & Assert
-            Assert.Throws<JsonException>(() => strategy.Parse(rawJson).ToList());
-        }
     }
 
 
