@@ -1,8 +1,12 @@
+using GenericParserApi.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
+builder.Services.AddScoped<IParserStrategy, CSVParserStrategy>();
+builder.Services.AddScoped<IParserStrategy, JsonParserStrategy>();
 
 var app = builder.Build();
 
