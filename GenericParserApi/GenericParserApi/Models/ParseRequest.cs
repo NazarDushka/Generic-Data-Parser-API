@@ -1,7 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
-
+﻿
 namespace GenericParserApi.Models;
 
-    public record ParseRequest(DataType Type, string content);
+    public record ParseRequest(SupportedDataTypes Type, string content);
     
 
